@@ -1,0 +1,58 @@
+<main class="content">
+  <h1>Acompanhe o clima na sua cidade</h1>
+
+  <div class="search">
+    <form>
+      <input type="text" name="city" placeholder="Cidade" [(ngModel)]="city" class="search__input">
+      <button type="button" (click)="getWeather()" class="search__button">Buscar</button>
+    </form>
+  </div>
+
+  <div class="weather_content">
+    <div class="weather_infos">
+      <div class="weather" *ngIf="data">
+        <div class="info">
+          <div class="location">{{data.name}} {{ data.main.temp }} °C</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="weather_infos">    
+      <div class="weather" *ngIf="data">
+        <div class="info">
+          <span>Min: {{data.main.temp_min}} °C</span>
+        </div>
+  
+        <div class="info">
+          <span>Max: {{data.main.temp_max}} °C</span>
+        </div>
+  
+        <div class="info">
+          <span>Umidade: {{data.main.humidity}} %</span>
+        </div>
+  
+        <div class="info">
+          <span>Vento: {{data.wind.speed}} km/h</span>
+        </div>
+      </div>
+
+      <div class="weather" *ngIf="data">
+        <div class="info">
+          <span>Sensação: {{data.main.feels_like}} °C</span>
+        </div>
+  
+        <div class="info">
+          <span>Pressão: {{data.main.pressure}} Pa</span>
+        </div>
+
+        <div class="info">
+          <span>Latitude: {{data.coord.lat}}</span>
+        </div>
+  
+        <div class="info">
+          <span>Longitude: {{data.coord.lon}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
